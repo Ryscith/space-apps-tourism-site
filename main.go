@@ -1,16 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"log"
+
+	"github.com/gofiber/fiber/v2"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello World</h1>")
-}
-
 func main() {
-	http.HandleFunc("/", helloHandler)
-	fmt.Println("Server started on :8080")
-	http.ListenAndServe(":8080", nil)
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
+
+	log.Fatal(app.Listen(":3000"))
 }
