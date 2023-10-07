@@ -20,5 +20,5 @@ A website for future tourists to discover the solar system.
 | Reilly Schultz     | Ryscith         | Ryscith            |
 | Santiago Gutierrez | santigut123     | santidev           |
 | Meghana Madiraju   | MeghanaM4       | meghanafour        |
-| Raghav Madiraju    |                 | ragss              |
+| Raghav Madiraju    | ragss           | ragss              |
 | Dasmine Wright     | roboticKitten100| dasminew5
