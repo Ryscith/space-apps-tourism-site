@@ -24,7 +24,8 @@ func main() {
 		// Render index
 		return c.Render("index", fiber.Map{
 			"Title": "Hello, World!",
-		})
+		}, "layouts/main")
+
 	})
 
 	app.Get("/layout", func(c *fiber.Ctx) error {

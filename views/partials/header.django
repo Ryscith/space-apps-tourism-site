@@ -1,3 +1,4 @@
-<h2>Header</h2>
-
+<nav class="navbar bg-base-300 text-primary-content">
+    <a class="btn btn-ghost text-base-content normal-case text-3xl">Cosmic Cruises</a>
+</nav>
 
