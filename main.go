@@ -35,5 +35,15 @@ func main() {
 		}, "layouts/main")
 	})
 
+	app.Get("/homepage", func(c *fiber.Ctx) error {
+		// Render index within layouts/main
+		return c.Render("pages/homepage", fiber.Map{})
+	})
+
+	app.Get("/questionnaire", func(c *fiber.Ctx) error {
+		// Render index within layouts/main
+		return c.Render("pages/questionnaire", fiber.Map{})
+	})
+
 	log.Fatal(app.Listen(":3000"))
 }
