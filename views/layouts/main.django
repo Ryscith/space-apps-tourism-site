@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html>
+{% include "partials/header.django" %}
 
 <head>
-  <title>Main</title>
+  <title>Cosmic Cruises</title>
 </head>
 
-<body>
-  {{embed}}
-</body>
+ <div>
+    <button>
+     hx-get ="{% url 'homePage' %}" hx-target="#questionairePage">
+    <button>
+    </div>
+  </div>
+    <button>
+     hx-get ="{% url 'homePage' %}" hx-target="#resourcesPage">
+    <button>
+    </div>
+<h3>
+    Discover Search Bar 
+    <span class="htmx-indicator"> 
+      <img src="/img/bars.svg"/> Searching... 
+     </span> 
+  <input class="form-control" type="discover" 
+         name="discover" placeholder="Begin Typing" 
+         hx-post="/discover" 
+         hx-trigger="keyup changed delay:500ms, discover" 
+         hx-target="#discover-results" 
+         hx-indicator=".htmx-indicator">
+</h3>
+
+<div>
+  <div>
+    <a herf="destination_description link" alt="Mercury">
+    <img src="">
+  </div>
+  <div>
+    <a herf="destination_description link" alt="Jupiter">
+    <img src="">
+  </div>
+  <div>
+    <a herf="destination_description link" alt="Spicy Planets">
+    <img src="">
+  </div>
+
+
+
+          <button id="close2"> close me </button>
+</div>
+{% include "partials/footer.django" %}
 
 </html>

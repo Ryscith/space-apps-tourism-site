@@ -1,0 +1,11 @@
+{% include "partials/header.django" %} 
+
+<h1>Questionaire</h1>
+<div>
+<form method="post" hx-post="{% url 'questionairePage' %}" hx-target="#messageArea">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% include "partials/footer.django" %}

@@ -1,5 +1,5 @@
 {% include "partials/header.django" %}
 
-<h1>{{ Title }}</h1>
-
+<h1>{{ Cosmic Cruises }}</h1>
+<h2>{{ Let's Build Your Perfect Space Vacation }}</h2>
 {% include "partials/footer.django" %}

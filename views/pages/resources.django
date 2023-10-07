@@ -1,0 +1,11 @@
+{% include "partials/header.django" %} 
+
+<h1>Resources</h1>
+    <h2>Useful Links</h2>
+        <a href="url">link text</a>
+        <a href="url">link text</a>
+        <a href="url">link text</a>
+        <a href="url">link text</a>
+        <a href="url">link text</a>
+
+{% include "partials/footer.django" %}
