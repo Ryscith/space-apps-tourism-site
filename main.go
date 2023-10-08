@@ -27,7 +27,7 @@ func main() {
 	planets := []Planet{
 		{
 			"Mercury",
-			"https://thesolarsystem.fandom.com/wiki/Mercury",
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/220px-Mercury_in_true_color.jpg",
 			"Closest rock to the sun",
 		},
 		{
@@ -47,7 +47,7 @@ func main() {
 		},
 		{
 			"Saturn",
-			"https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
+			"https://imgs.search.brave.com/QDIf3cy7Q8445Uv6CZ0XiP1pnTJOIT1H5tRPMSnhs-U/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzY2Lzk0LzIx/LzM2MF9GXzY2OTQy/MTg4X1ZDSWVsTjlX/Q3g5ZlUyRGpVbmRa/aVp4aDU4bHc0VVZR/LmpwZw",
 			"Fifth closest rock to the sun",
 		},
 		{

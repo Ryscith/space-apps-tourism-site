@@ -1,8 +1,9 @@
-<div class="card card-compact w-96 bg-neutral shadow-xl m-20" role="article">
+<div class="card card-compact w-64 h-96 bg-neutral shadow-xl" role="article">
+    <figure><img class="w-64" src="{{ planet.ImageURL }}" alt="{{ planet.Name }}" /></figure>
     <div class="card-body">
         <h2 class="card-title">{{ planet.Name }}</h2>
         <p aria-label="Description">{{ planet.Desc | default:"Card description" }}</p>
-        <div class="card-actions justify-end">
+        <div class="card-actions justify-center">
             <button class="btn btn-neutral" aria-label="View details for {{ planet.Desc }}">
                 Full Trip Description
             </button>

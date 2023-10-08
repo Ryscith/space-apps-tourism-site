@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-<div class="flex justify-center">
+<div class="grid grid-cols-3 gap-2 place-content-evenly place-items-center pb-10">
     {% for planet in planets %}
         {% include "partials/elements.django" %}
     {% endfor %}
