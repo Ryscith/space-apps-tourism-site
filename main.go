@@ -45,5 +45,10 @@ func main() {
 		return c.Render("pages/questionnaire", fiber.Map{})
 	})
 
+	app.Get("/elements", func(c *fiber.Ctx) error {
+		// Render index within layouts/main
+		return c.Render("partials/elements", fiber.Map{})
+	})
+
 	log.Fatal(app.Listen(":3000"))
 }
