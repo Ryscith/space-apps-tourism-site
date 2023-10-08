@@ -92,7 +92,7 @@ func main() {
 	app.Get("/homepage", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
 		return c.Render("pages/homepage", fiber.Map{
-			"planet": planets,
+			"planets": planets,
 		})
 	})
 
@@ -127,6 +127,20 @@ func main() {
 	app.Post("/questionnaire", func(c *fiber.Ctx) error {
 		log.Print(c.Request())
 		return c.Render("pages/homepage", fiber.Map{})
+	})
+
+	app.Get("/destination/:planetname", func(c *fiber.Ctx) error {
+		var target_planet Planet
+		for _, planet := range planets {
+			if planet.Name == c.Params("planetname") {
+				target_planet = planet
+			}
+		}
+
+		// Render index within layouts/main
+		return c.Render("pages/destination", fiber.Map{
+			"planet": target_planet,
+		})
 	})
 
 	app.Get("/elements", func(c *fiber.Ctx) error {

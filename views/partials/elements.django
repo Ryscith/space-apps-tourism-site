@@ -4,7 +4,7 @@
         <h2 class="card-title">{{ planet.Name }}</h2>
         <p aria-label="Description">{{ planet.Desc | default:"Card description" }}</p>
         <div class="card-actions justify-center">
-            <button class="btn btn-neutral" aria-label="View details for {{ planet.Desc }}">
+            <button class="btn btn-neutral" hx-get="/destination/{{ planet.Name }}" hx-target="#content" hx-swap="innerHTML" aria-label="View details for {{ planet.Desc }}">
                 Full Trip Description
             </button>
         </div>
