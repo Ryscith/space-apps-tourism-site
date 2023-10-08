@@ -10,4 +10,12 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 {% include "pages/tourpackage.django" %}
+=======
+<div class="flex justify-center">
+    {% for planet in planets %}
+        {% include "partials/elements.django" %}
+    {% endfor %}
+</div>
+>>>>>>> 93ca7a4d7817b04fdd046fc42a37406d363cfbca
