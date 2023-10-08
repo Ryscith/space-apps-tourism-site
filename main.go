@@ -108,5 +108,10 @@ func main() {
 		return c.Render("pages/homepage", fiber.Map{})
 	})
 
+	app.Get("/destination", func(c *fiber.Ctx) error {
+		// Render index within layouts/main
+		return c.Render("pages/destination", fiber.Map{})
+	})
+
 	log.Fatal(app.Listen(":3000"))
 }
