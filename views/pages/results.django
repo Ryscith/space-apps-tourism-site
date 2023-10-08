@@ -1,0 +1,11 @@
+<div class="grid grid-cols-3 gap-4 place-content-evenly place-items-center pb-10">
+    <h1 class="text-4xl font-bold py-10 col-span-3">Tour Packages We Think You'd Love:</h1>
+        {% include "partials/packagecard.django" %}
+</div>
+
+<div class="grid grid-cols-3 gap-4 place-content-evenly place-items-center pb-10">
+    <h1 class="text-4xl font-bold py-10 col-span-3">Planets We Think You'd Love To Visit:</h1>
+    {% for planet in planet_results %}
+        {% include "partials/elements.django" %}
+    {% endfor %}
+</div>

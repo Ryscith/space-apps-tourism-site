@@ -8,7 +8,7 @@
             </button>
     </div>
 </div>
-<div class="grid grid-cols-3 gap-2 place-content-evenly place-items-center pb-10">
+<div class="grid grid-cols-3 gap-4 place-content-evenly place-items-center pb-10">
     {% for planet in planets %}
         {% include "partials/elements.django" %}
     {% endfor %}

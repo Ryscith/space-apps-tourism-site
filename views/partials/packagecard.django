@@ -1,0 +1,13 @@
+
+<div class="card card-compact w-64 h-96 bg-neutral shadow-xl" role="article">
+    {% comment %} <figure><img class="w-64" src="{{ planet.ImageURL }}" alt="{{ planet.Name }}" /></figure> {% endcomment %}
+    <div class="card-body">
+        <h2 class="card-title">Sunrise Tour</h2>
+        <p aria-label="Description">A tour to see dawn on every planet</p>
+        <div class="card-actions justify-center">
+            <button class="btn btn-neutral" hx-get="/tourpackage/sunrisetour" hx-target="#content" hx-swap="innerHTML" aria-label="View details for Sunrise Tour">
+                Full Package Description
+            </button>
+        </div>
+    </div>  
+</div>

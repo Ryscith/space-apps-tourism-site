@@ -166,7 +166,9 @@ func main() {
 
 	app.Post("/questionnaire", func(c *fiber.Ctx) error {
 		log.Print(c.Request())
-		return c.Render("pages/tourpackage", fiber.Map{})
+		return c.Render("pages/results", fiber.Map{
+			"planet_results": planets,
+		})
 	})
 
 	app.Get("/destination/:planetname", func(c *fiber.Ctx) error {
@@ -188,6 +190,11 @@ func main() {
 		return c.Render("pages/homepage", fiber.Map{
 			"planet": planets,
 		})
+	})
+
+	app.Get("/tourpackage/:packagename", func(c *fiber.Ctx) error {
+		// Render index within layouts/main
+		return c.Render("pages/tourpackage", fiber.Map{})
 	})
 
 	log.Fatal(app.Listen(":3000"))
