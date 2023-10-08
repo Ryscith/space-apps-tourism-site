@@ -1,18 +1,9 @@
 <div class="card card-compact w-96 bg-base-100 shadow-xl">
     <div class="card-body">
-      <h2 class="card-title">Title</h2>
-       <div class="elements-call">
-                {% with forloop.Counter as element_caller %}
-                {% for option in elements.option %}
-                <label class="label cursor-pointer flex justify-start" for="option{{ element_caller }}-{{ forloop.Counter }}">
-                    <input type="radio" name="{{ question.Text }}" class="radio checked:primary" id="option{{ element_caller }}-{{ forloop.Counter }}" value="{{ option.Id }}">
-                    <p class="pl-5">{{ elements.option }}</p>
-                </label>
-                {% endfor %}
-                {% endwith %}
-            </div>
-        </div>
-        {% endfor %}
-     <p>Card description</p>
+      <h2 class="card-title">{elements.title}</h2>
+      <p>Card description</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">View</button>
+      </div>
     </div>  
   </div>

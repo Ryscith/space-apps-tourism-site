@@ -17,6 +17,11 @@ type Choice struct {
 	Id   int
 }
 
+type Elements struct{
+	Text string
+	Option []Option
+}
+
 func main() {
 	// Create a new engine
 	engine := django.New("./views", ".django")
@@ -88,7 +93,8 @@ func main() {
 		return c.Render("pages/homepage", fiber.Map{
 			"elements": []Elements{
 				{
-					
+				{'name': 'Title'},
+				{'name': 'Description'}	
 				}
 			} 
 		})

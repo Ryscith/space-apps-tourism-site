@@ -9,5 +9,10 @@
         </div>
     </div>
     <div class="elements-content">
+    {% for planet in planets %}
+    <div hx-get="/elements{{ planet.id }}" hx-swap="outerHTML">
+        {% include "partials/elements.django" with planet=planet %}
+    </div>
+ {% endfor %}
     </div>
 </div>
