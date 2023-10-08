@@ -8,13 +8,8 @@
             </button>
         </div>
     </div>
-    <div class="elements-content">
-    {% for planet in planets %}
-    <div hx-get="/elements{{ planet.id }}">
-        {% include "partials/elements.django" with planet=planet %}
-    </div>
- {% endfor %}
-    </div>
 </div>
 
-{% include "pages/elements.django" %}
+{% for planet in planets %}
+    {% include "partials/elements.django" %}
+{% endfor %}

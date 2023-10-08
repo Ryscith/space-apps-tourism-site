@@ -17,9 +17,9 @@ type Choice struct {
 	Id   int
 }
 
-type Elements struct{
-	Text string
-	Option []Option
+type Planet struct {
+	Name string
+	Desc string
 }
 
 func main() {
@@ -38,7 +38,16 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		// Render index
 		return c.Render("index", fiber.Map{
-			"Title": "Hello, World!",
+			"planets": []Planet{
+				{
+					"Mercury",
+					"Closest rock to the sun",
+				},
+				{
+					"Venus",
+					"Second closest rock to the sun",
+				},
+			},
 		}, "layouts/main")
 
 	})
@@ -52,7 +61,18 @@ func main() {
 
 	app.Get("/homepage", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
-		return c.Render("pages/homepage", fiber.Map{})
+		return c.Render("pages/homepage", fiber.Map{
+			"planets": []Planet{
+				{
+					"Mercury",
+					"Closest rock to the sun",
+				},
+				{
+					"Venus",
+					"Second closest rock to the sun",
+				},
+			},
+		})
 	})
 
 	app.Get("/questionnaire", func(c *fiber.Ctx) error {
@@ -91,12 +111,16 @@ func main() {
 	app.Get("/elements", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
 		return c.Render("pages/homepage", fiber.Map{
-			"elements": []Elements{
+			"planets": []Planet{
 				{
-				{'name': 'Title'},
-				{'name': 'Description'}	
-				}
-			} 
+					"Mercury",
+					"Closest rock to the sun",
+				},
+				{
+					"Venus",
+					"Second closest rock to the sun",
+				},
+			},
 		})
 	})
 

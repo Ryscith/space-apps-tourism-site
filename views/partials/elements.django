@@ -1,9 +1,9 @@
-<div class="card card-compact w-96 bg-base-100 shadow-xl" role="article">
+<div class="card card-compact w-96 bg-primary shadow-xl" role="article">
     <div class="card-body">
-        <h2 class="card-title">{{ elements.title }}</h2>
-        <p aria-label="Description">{{ elements.description | default:"Card description" }}</p>
+        <h2 class="card-title">{{ planet.Name }}</h2>
+        <p aria-label="Description">{{ planet.Desc | default:"Card description" }}</p>
         <div class="card-actions justify-end">
-            <button class="btn btn-primary" aria-label="View details for {{ elements.title }}">
+            <button class="btn btn-primary" aria-label="View details for {{ planet.Desc }}">
                 View
             </button>
         </div>
