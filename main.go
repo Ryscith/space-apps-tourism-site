@@ -108,21 +108,5 @@ func main() {
 		return c.Render("pages/homepage", fiber.Map{})
 	})
 
-	app.Get("/elements", func(c *fiber.Ctx) error {
-		// Render index within layouts/main
-		return c.Render("pages/homepage", fiber.Map{
-			"planets": []Planet{
-				{
-					"Mercury",
-					"Closest rock to the sun",
-				},
-				{
-					"Venus",
-					"Second closest rock to the sun",
-				},
-			},
-		})
-	})
-
 	log.Fatal(app.Listen(":3000"))
 }
