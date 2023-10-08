@@ -18,11 +18,91 @@ type Choice struct {
 }
 
 type Planet struct {
-	Name string
-	Desc string
+	Name                         string
+	ImageURL                     string
+	Description                  string
+	Weather                      string
+	Atmosphere                   string
+	GravityRelativeToEarth       float32
+	DayNightCycleRelativeToEarth float32
+	AxisRotationAngle            int
 }
 
 func main() {
+	planets := []Planet{
+		{
+			Name:                         "Mercury",
+			ImageURL:                     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/220px-Mercury_in_true_color.jpg",
+			Description:                  "Closest rock to the sun",
+			Weather:                      "No atmosphere, extremely hot on the day side and cold on the night side",
+			Atmosphere:                   "Very thin exosphere with traces of hydrogen, helium, and oxygen",
+			GravityRelativeToEarth:       0.38,
+			DayNightCycleRelativeToEarth: 58.6,
+			AxisRotationAngle:            2,
+		},
+		{
+			Name:                         "Venus",
+			ImageURL:                     "https://upload.wikimedia.org/wikipedia/commons/5/54/Venus_-_December_23_2016.png",
+			Description:                  "Second closest rock to the sun",
+			Weather:                      "Thick clouds, sulfuric acid rain, extremely hot surface temperatures",
+			Atmosphere:                   "96.5% carbon dioxide, clouds of sulfuric acid",
+			GravityRelativeToEarth:       0.91,
+			DayNightCycleRelativeToEarth: 243, // Venus has a retrograde rotation
+			AxisRotationAngle:            177,
+		},
+		{
+			Name:                         "Mars",
+			ImageURL:                     "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+			Description:                  "Fourth planet from the sun",
+			Weather:                      "Thin atmosphere, very cold, dust storms",
+			Atmosphere:                   "95.3% carbon dioxide, 2.7% nitrogen, 1.6% argon",
+			GravityRelativeToEarth:       0.375,
+			DayNightCycleRelativeToEarth: 1.03,
+			AxisRotationAngle:            25,
+		},
+		{
+			Name:                         "Jupiter",
+			ImageURL:                     "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+			Description:                  "Largest planet in the solar system",
+			Weather:                      "Stormy with the Great Red Spot being a persistent storm",
+			Atmosphere:                   "Predominantly hydrogen and helium",
+			GravityRelativeToEarth:       2.528,
+			DayNightCycleRelativeToEarth: 0.41,
+			AxisRotationAngle:            3,
+		},
+		{
+			Name:                         "Saturn",
+			ImageURL:                     "https://imgs.search.brave.com/QDIf3cy7Q8445Uv6CZ0XiP1pnTJOIT1H5tRPMSnhs-U/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzY2Lzk0LzIx/LzM2MF9GXzY2OTQy/MTg4X1ZDSWVsTjlX/Q3g5ZlUyRGpVbmRa/aVp4aDU4bHc0VVZR/LmpwZw",
+			Description:                  "Known for its stunning rings",
+			Weather:                      "Wind speeds up to 1,800 km/h",
+			Atmosphere:                   "Mostly hydrogen and helium",
+			GravityRelativeToEarth:       1.065,
+			DayNightCycleRelativeToEarth: 0.45,
+			AxisRotationAngle:            27,
+		},
+		{
+			Name:                         "Uranus",
+			ImageURL:                     "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg",
+			Description:                  "A pale blue planet tilted on its side",
+			Weather:                      "Cold and cloudy",
+			Atmosphere:                   "Hydrogen, helium, and methane",
+			GravityRelativeToEarth:       0.886,
+			DayNightCycleRelativeToEarth: 0.72,
+			AxisRotationAngle:            98,
+		},
+		{
+			Name:                         "Neptune",
+			ImageURL:                     "https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
+			Description:                  "Farthest planet from the sun",
+			Weather:                      "Strong storms with high wind speeds",
+			Atmosphere:                   "Hydrogen, helium, and methane",
+			GravityRelativeToEarth:       1.14,
+			DayNightCycleRelativeToEarth: 0.67,
+			AxisRotationAngle:            28,
+		},
+	}
+	// END: ed8c6549bwf9
+
 	// Create a new engine
 	engine := django.New("./views", ".django")
 
@@ -38,17 +118,7 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		// Render index
 		return c.Render("index", fiber.Map{
-			"planets": []Planet{
-				{
-					"Mercury",
-					"Closest rock to the sun",
-				},
-				{
-					"Venus",
-					"Second closest rock to the sun",
-				},
-			},
-		}, "layouts/main")
+			"planets": planets}, "layouts/main")
 
 	})
 
@@ -62,16 +132,7 @@ func main() {
 	app.Get("/homepage", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
 		return c.Render("pages/homepage", fiber.Map{
-			"planets": []Planet{
-				{
-					"Mercury",
-					"Closest rock to the sun",
-				},
-				{
-					"Venus",
-					"Second closest rock to the sun",
-				},
-			},
+			"planets": planets,
 		})
 	})
 
@@ -108,9 +169,25 @@ func main() {
 		return c.Render("pages/homepage", fiber.Map{})
 	})
 
-	app.Get("/destination", func(c *fiber.Ctx) error {
+	app.Get("/destination/:planetname", func(c *fiber.Ctx) error {
+		var target_planet Planet
+		for _, planet := range planets {
+			if planet.Name == c.Params("planetname") {
+				target_planet = planet
+			}
+		}
+
 		// Render index within layouts/main
-		return c.Render("pages/destination", fiber.Map{})
+		return c.Render("pages/destination", fiber.Map{
+			"planet": target_planet,
+		})
+	})
+
+	app.Get("/elements", func(c *fiber.Ctx) error {
+		// Render index within layouts/main
+		return c.Render("pages/homepage", fiber.Map{
+			"planet": planets,
+		})
 	})
 
 	log.Fatal(app.Listen(":3000"))
