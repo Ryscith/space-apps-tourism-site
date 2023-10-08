@@ -18,11 +18,51 @@ type Choice struct {
 }
 
 type Planet struct {
-	Name string
-	Desc string
+	Name     string
+	ImageURL string
+	Desc     string
 }
 
 func main() {
+	planets := []Planet{
+		{
+			"Mercury",
+			"https://thesolarsystem.fandom.com/wiki/Mercury",
+			"Closest rock to the sun",
+		},
+		{
+			"Venus",
+			"https://upload.wikimedia.org/wikipedia/commons/5/54/Venus_-_December_23_2016.png",
+			"Second closest rock to the sun",
+		},
+		{
+			"Mars",
+			"https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg",
+			"Third closest rock to the sun",
+		},
+		{
+			"Jupiter",
+			"https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+			"Fourth closest rock to the sun",
+		},
+		{
+			"Saturn",
+			"https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg",
+			"Fifth closest rock to the sun",
+		},
+		{
+			"Uranus",
+			"https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg",
+			"Sixth closest rock to the sun",
+		},
+		{
+			"Neptune",
+			"https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg",
+			"Seventh closest rock to the sun",
+		},
+	}
+	// END: ed8c6549bwf9
+
 	// Create a new engine
 	engine := django.New("./views", ".django")
 
@@ -38,17 +78,7 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		// Render index
 		return c.Render("index", fiber.Map{
-			"planets": []Planet{
-				{
-					"Mercury",
-					"Closest rock to the sun",
-				},
-				{
-					"Venus",
-					"Second closest rock to the sun",
-				},
-			},
-		}, "layouts/main")
+			"planets": planets}, "layouts/main")
 
 	})
 
@@ -62,16 +92,7 @@ func main() {
 	app.Get("/homepage", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
 		return c.Render("pages/homepage", fiber.Map{
-			"planets": []Planet{
-				{
-					"Mercury",
-					"Closest rock to the sun",
-				},
-				{
-					"Venus",
-					"Second closest rock to the sun",
-				},
-			},
+			"planet": planets,
 		})
 	})
 
@@ -111,16 +132,7 @@ func main() {
 	app.Get("/elements", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
 		return c.Render("pages/homepage", fiber.Map{
-			"planets": []Planet{
-				{
-					"Mercury",
-					"Closest rock to the sun",
-				},
-				{
-					"Venus",
-					"Second closest rock to the sun",
-				},
-			},
+			"planet": planets,
 		})
 	})
 
