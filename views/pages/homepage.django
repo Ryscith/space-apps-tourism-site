@@ -9,3 +9,8 @@
         </div>
     </div>
 </div>
+<div class="flex justify-center">
+    {% for planet in planets %}
+        {% include "partials/elements.django" %}
+    {% endfor %}
+</div>
