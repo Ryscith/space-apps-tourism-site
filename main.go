@@ -166,7 +166,7 @@ func main() {
 
 	app.Post("/questionnaire", func(c *fiber.Ctx) error {
 		log.Print(c.Request())
-		return c.Render("pages/homepage", fiber.Map{})
+		return c.Render("pages/tourpackage", fiber.Map{})
 	})
 
 	app.Get("/destination/:planetname", func(c *fiber.Ctx) error {
