@@ -63,16 +63,16 @@ func main() {
 					[]Choice{{"I love it!", 0}, {"I hate it.", 1}, {"No Preference", 2}},
 				},
 				{
-					"Do you like geology?",
-					[]Choice{{"I love it!", 0}, {"I hate it.", 1}, {"No Preference", 2}},
+					"How much time do you have?",
+					[]Choice{{"Less than a week", 0}, {"A week", 1}, {"More than a week", 2}},
 				},
 				{
-					"Do you like geology?",
-					[]Choice{{"I love it!", 0}, {"I hate it.", 1}, {"No Preference", 2}},
+					"Do you have any heart problems?",
+					[]Choice{{"Yes", 0}, {"No", 1}},
 				},
 				{
-					"Do you like geology?",
-					[]Choice{{"I love it!", 0}, {"I hate it.", 1}, {"No Preference", 2}},
+					"Which would you prefer?",
+					[]Choice{{"Sight seeing from space", 0}, {"Seeing a planet from it's surface", 1}},
 				},
 			},
 		})

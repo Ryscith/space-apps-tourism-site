@@ -4,12 +4,14 @@
         <div class="col-start-2 col-end-3 pt-10 pb-5">
             <h1 class="text-xl">{{ question.Text }}</h1>
             <div class="form-control">
+                {% with forloop.Counter as question_counter %}
                 {% for choice in question.Choices %}
-                <label class="label cursor-pointer flex justify-start" for="choice{{ loop.index }}">
-                    <input type="radio" name="{{ question.Text }}" class="radio checked:primary" id="choice{{ loop.index }}" value="{{ choice.Id }}">
+                <label class="label cursor-pointer flex justify-start" for="choice{{ question_counter }}-{{ forloop.Counter }}">
+                    <input type="radio" name="{{ question.Text }}" class="radio checked:primary" id="choice{{ question_counter }}-{{ forloop.Counter }}" value="{{ choice.Id }}">
                     <p class="pl-5">{{ choice.Text }}</p>
                 </label>
                 {% endfor %}
+                {% endwith %}
             </div>
             <br>
         </div>
