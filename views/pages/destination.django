@@ -1,16 +1,13 @@
 <div class="hero bg-base-200 p-20">
-  <h1>{{ planet.Name }}</h1>      
+  <div class="hero-content flex-col lg:flex-row">
+    <img src="{{ planet.ImageURL }}" class="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 class="text-5xl font-bold">{{ planet.Name }}</h1>
+      <p class="py-6">{{ planet.Description }}</p>
+      <button class="btn btn-primary">Book A Trip Now</button>
+    </div>
+  </div>     
 </div>
-
-  {% comment %} <input type="checkbox" /> 
-  <div class="collapse-title text-xl font-medium">
-    Why's it called that?
-  </div>
-  <div class="collapse-content"> 
-    <p>get from database</p>
-  </div>
-</div> {% endcomment %} 
-
 
 <div class="shadow stats flex flex-row justify-center">
   <div class="stat">
@@ -18,8 +15,8 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     </div>
     <div class="stat-title">Day/Night Cycle</div>
-    <div class="stat-value">get from database</div>
-    <div class="stat-desc">hours</div>
+    <div class="stat-value">{{ planet.DayNightCycleRelativeToEarth }}</div>
+    <div class="stat-desc">Earth days</div>
   </div>
   
   <div class="stat">
@@ -27,7 +24,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
     </div>
     <div class="stat-title">Gravity Level</div>
-    <div class="stat-value">38%</div>
+    <div class="stat-value">{{ planet.GravityRelativeToEarth }}</div>
     <div class="stat-desc">percent of Earth's gravity</div>
   </div>
   {% comment %} <progress class="progress progress-accent w-56" value="38" max="100"></progress> {% endcomment %}
@@ -37,16 +34,23 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
     </div>
     <div class="stat-title">Rotation</div>
-    <div class="stat-value">2°</div>
+    <div class="stat-value">{{ planet.AxisRotationAngle }}°</div>
     <div class="stat-desc">from the horizontal</div>
   </div>
 </div>
 
-  <div class="flex flex-col w-full">
-    <div class="h-20 card bg-base-300 rounded-box ">Weather Conditions: blahblahblahblahblahblah</div> 
-    <div class="h-20 card bg-base-300 rounded-box ">Astronomical Phenomena: blahblahblahblah</div>
-    <div class="h-20 card bg-base-300 rounded-box ">Atmosphere</div>
+<div class="grid grid-cols-1 gap-4 place-content-evenly place-items-center py-10">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Weather Conditions:</h2>
+      <p>{{ planet.Weather }}</p>
+    </div>
   </div>
-
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Atmosphere Composition:</h2>
+      <p>{{ planet.Atmosphere }}</p>
+    </div>
   </div>
+</div>
 

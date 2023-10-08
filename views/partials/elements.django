@@ -2,9 +2,9 @@
     <figure><img class="w-64" src="{{ planet.ImageURL }}" alt="{{ planet.Name }}" /></figure>
     <div class="card-body">
         <h2 class="card-title">{{ planet.Name }}</h2>
-        <p aria-label="Description">{{ planet.Desc | default:"Card description" }}</p>
+        <p aria-label="Description">{{ planet.Description | default:"Card description" }}</p>
         <div class="card-actions justify-center">
-            <button class="btn btn-neutral" hx-get="/destination/{{ planet.Name }}" hx-target="#content" hx-swap="innerHTML" aria-label="View details for {{ planet.Desc }}">
+            <button class="btn btn-neutral" hx-get="/destination/{{ planet.Name }}" hx-target="#content" hx-swap="innerHTML" aria-label="View details for {{ planet.Name }}">
                 Full Trip Description
             </button>
         </div>
