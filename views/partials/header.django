@@ -1,4 +1,4 @@
 <nav class="navbar bg-neutral text-neutral-content">
-    <a class="btn btn-ghost text-base-content normal-case text-3xl" hx-get="/homepage" hx-target="#content" hx-swap="innerHTML">Cosmic Cruises</a>
+    <a class="btn btn-ghost text-base-content normal-case text-3xl" hx-get="/homepage" hx-target="#content" hx-swap="innerHTML"><img class="w-8 h-8" src="https://i.ibb.co/4tcr6FC/logo.png" alt="logo" border="0"><img class="h-12" src="https://i.ibb.co/JcrFQbZ/cosmic-cruises-text.png" alt="logo" border="0"></a>
 </nav>
 
