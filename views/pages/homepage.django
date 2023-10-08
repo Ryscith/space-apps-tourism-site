@@ -10,3 +10,8 @@
     </div>
 </div>
 {% include "partials/search.django" %}
+<div class="flex justify-center">
+    {% for planet in planets %}
+        {% include "partials/elements.django" %}
+    {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+<div class="card card-compact w-96 bg-neutral shadow-xl m-20" role="article">
+    <div class="card-body">
+        <h2 class="card-title">{{ planet.Name }}</h2>
+        <p aria-label="Description">{{ planet.Desc | default:"Card description" }}</p>
+        <div class="card-actions justify-end">
+            <button class="btn btn-neutral" aria-label="View details for {{ planet.Desc }}">
+                Full Trip Description
+            </button>
+        </div>
+    </div>  
+</div>
