@@ -10,4 +10,4 @@
     </div>
 </div>
 
-{% include "pages/destination.django" %}
+{% include "pages/tourpackage.django" %}
