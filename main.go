@@ -85,7 +85,13 @@ func main() {
 
 	app.Get("/elements", func(c *fiber.Ctx) error {
 		// Render index within layouts/main
-		return c.Render("partials/elements", fiber.Map{})
+		return c.Render("pages/homepage", fiber.Map{
+			"elements": []Elements{
+				{
+					
+				}
+			} 
+		})
 	})
 
 	log.Fatal(app.Listen(":3000"))
