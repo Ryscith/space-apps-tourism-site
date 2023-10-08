@@ -1,5 +1,19 @@
-<div>
-    <p>
-        Hello Questions
-    </p>
-</div>
+<form hx-post="/questionnaire" hx-target="#content">
+    <div class="grid grid-cols-3">
+        {% for question in questions %}
+        <div class="col-start-2 col-end-3 pt-10 pb-5">
+            <h1 class="text-xl">{{ question.Text }}</h1>
+            <div class="form-control">
+                {% for choice in question.Choices %}
+                <label class="label cursor-pointer flex justify-start" for="choice{{ loop.index }}">
+                    <input type="radio" name="{{ question.Text }}" class="radio checked:primary" id="choice{{ loop.index }}" value="{{ choice.Id }}">
+                    <p class="pl-5">{{ choice.Text }}</p>
+                </label>
+                {% endfor %}
+            </div>
+            <br>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary col-start-2 col-end-3 m-10">Submit</button>
+    </div>
+</form>

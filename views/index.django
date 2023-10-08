@@ -1,5 +1,5 @@
 {% include "partials/header.django" %}
-<div id="content">
+<div id="content" class="max-h-fit">
     {% include "pages/homepage.django" %}
 </div>
 {% include "partials/footer.django" %}

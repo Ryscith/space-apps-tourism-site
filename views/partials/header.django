@@ -1,4 +1,4 @@
-<nav class="navbar bg-base-300 text-primary-content">
+<nav class="navbar bg-accent text-primary-content">
     <a class="btn btn-ghost text-base-content normal-case text-3xl" hx-get="/homepage" hx-target="#content" hx-swap="innerHTML">Cosmic Cruises</a>
 </nav>
 
