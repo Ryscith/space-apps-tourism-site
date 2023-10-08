@@ -1,12 +1,11 @@
-<div class="hero h-screen bg-base-200 p-20">
-    <div class="hero-content text-center">
-        <div class="max-w-lg">
+<div class="hero h-screen bg-base-200">
+    <div class="hero-content flex flex-col max-w-xl mb-48 text-center align-content-center">
+            <img class="w-64 h-64" src="https://i.ibb.co/4tcr6FC/logo.png" alt="logo" border="0">
             <h1 class="text-5xl font-bold">Let's Build Your Perfect Space-cation</h1>
             <p class="py-6">Tired of your home planet? Take this quiz and let us find the perfect planets for your next interplanetery excursion.</p>
             <button class="btn btn-primary" hx-get="/questionnaire" hx-target="#content" hx-swap="innerHTML">
                 Take The Quiz
             </button>
-        </div>
     </div>
 </div>
 <div class="grid grid-cols-3 gap-2 place-content-evenly place-items-center pb-10">
