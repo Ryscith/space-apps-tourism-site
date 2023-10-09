@@ -1,6 +1,8 @@
 # Cosmic Cruises
 A website for future tourists to discover the solar system.
 
+Hosted at: https://cosmic.spirit.papaserver.xyz/
+
 ## Tech Stack
 
 - Golang
